@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 170" width="1280" height="170" role="img" aria-labelledby="t">
+<title id="t">164,587 neurons; 24,914,841 connections; 3,936 photoreceptors look at the phone; 284 olfactory neurons smell the vape; 1 ms step, 50 ms per tick</title>
+<defs>
+<clipPath id="c0"><rect x="0.5" y=".5" width="234.6" height="169" rx="10"/></clipPath>
+<clipPath id="c1"><rect x="251.1" y=".5" width="276.8" height="169" rx="10"/></clipPath>
+<clipPath id="c2"><rect x="543.8" y=".5" width="234.6" height="169" rx="10"/></clipPath>
+<clipPath id="c3"><rect x="794.4" y=".5" width="234.6" height="169" rx="10"/></clipPath>
+<clipPath id="c4"><rect x="1044.9" y=".5" width="234.6" height="169" rx="10"/></clipPath>
+</defs>
+<g>
+<rect x="0.5" y=".5" width="234.6" height="169" rx="10" fill="#0d1117"/>
+<rect x="0.5" y=".5" width="234.6" height="169" rx="10" fill="#2f81f7" fill-opacity="0.08"/>
+<rect x="0.5" y="0" width="6" height="170" fill="#2f81f7" clip-path="url(#c0)"/>
+<rect x="0.5" y=".5" width="234.6" height="169" rx="10" fill="none" stroke="#3d444d"/>
+<text x="30.5" y="70" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="44" font-weight="600" letter-spacing="-0.5" fill="#e6edf3" style="font-variant-numeric:tabular-nums;font-feature-settings:'tnum'">164,587</text>
+<text font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" fill="#9198a1"><tspan x="30.5" y="104">neurons</tspan></text>
+</g>
+<g>
+<rect x="251.1" y=".5" width="276.8" height="169" rx="10" fill="#0d1117"/>
+<rect x="251.1" y=".5" width="276.8" height="169" rx="10" fill="#a371f7" fill-opacity="0.08"/>
+<rect x="251.1" y="0" width="6" height="170" fill="#a371f7" clip-path="url(#c1)"/>
+<rect x="251.1" y=".5" width="276.8" height="169" rx="10" fill="none" stroke="#3d444d"/>
+<text x="281.1" y="70" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="44" font-weight="600" letter-spacing="-0.5" fill="#e6edf3" style="font-variant-numeric:tabular-nums;font-feature-settings:'tnum'">24,914,841</text>
+<text font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" fill="#9198a1"><tspan x="281.1" y="104">connections</tspan></text>
+</g>
+<g>
+<rect x="543.8" y=".5" width="234.6" height="169" rx="10" fill="#0d1117"/>
+<rect x="543.8" y=".5" width="234.6" height="169" rx="10" fill="#f0883e" fill-opacity="0.08"/>
+<rect x="543.8" y="0" width="6" height="170" fill="#f0883e" clip-path="url(#c2)"/>
+<rect x="543.8" y=".5" width="234.6" height="169" rx="10" fill="none" stroke="#3d444d"/>
+<text x="573.8" y="70" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="44" font-weight="600" letter-spacing="-0.5" fill="#e6edf3" style="font-variant-numeric:tabular-nums;font-feature-settings:'tnum'">3,936</text>
+<text font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" fill="#9198a1"><tspan x="573.8" y="104">photoreceptors look</tspan><tspan x="573.8" y="130">at the phone</tspan></text>
+</g>
+<g>
+<rect x="794.4" y=".5" width="234.6" height="169" rx="10" fill="#0d1117"/>
+<rect x="794.4" y=".5" width="234.6" height="169" rx="10" fill="#db61a2" fill-opacity="0.08"/>
+<rect x="794.4" y="0" width="6" height="170" fill="#db61a2" clip-path="url(#c3)"/>
+<rect x="794.4" y=".5" width="234.6" height="169" rx="10" fill="none" stroke="#3d444d"/>
+<text x="824.4" y="70" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="44" font-weight="600" letter-spacing="-0.5" fill="#e6edf3" style="font-variant-numeric:tabular-nums;font-feature-settings:'tnum'">284</text>
+<text font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" fill="#9198a1"><tspan x="824.4" y="104">olfactory neurons</tspan><tspan x="824.4" y="130">smell the vape</tspan></text>
+</g>
+<g>
+<rect x="1044.9" y=".5" width="234.6" height="169" rx="10" fill="#0d1117"/>
+<rect x="1044.9" y=".5" width="234.6" height="169" rx="10" fill="#39c5cf" fill-opacity="0.08"/>
+<rect x="1044.9" y="0" width="6" height="170" fill="#39c5cf" clip-path="url(#c4)"/>
+<rect x="1044.9" y=".5" width="234.6" height="169" rx="10" fill="none" stroke="#3d444d"/>
+<text x="1074.9" y="70" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="44" font-weight="600" letter-spacing="-0.5" fill="#e6edf3" style="font-variant-numeric:tabular-nums;font-feature-settings:'tnum'">1 ms</text>
+<text font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" fill="#9198a1"><tspan x="1074.9" y="104">step, 50 ms per tick</tspan></text>
+</g>
+</svg>

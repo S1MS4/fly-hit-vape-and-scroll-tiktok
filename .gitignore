@@ -11,6 +11,9 @@ venv/
 .env
 .env.*
 
+# Claude Code session state
+.claude/
+
 # OS and editors
 .DS_Store
 Thumbs.db
