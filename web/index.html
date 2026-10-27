@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fly Brain: Vape &amp; Scroll</title>
+  </head>
+  <body>
+    <div id="scene"></div>
+
+    <section id="stats" class="panel">
+      <h1>fly brain · vape &amp; scroll</h1>
+      <div class="sub" id="dataset">MaleCNS v1.0 connectome</div>
+      <div class="kv">
+        <span>bio time</span><span id="bio">–</span>
+        <span>neurons firing</span><span id="spk">–</span>
+        <span>puffs</span><span id="puffs">0</span>
+        <span>swipes</span><span id="swipes">0</span>
+        <span>likes</span><span id="likes">0</span>
+        <span>follows</span><span id="follows">0</span>
+        <span>reposts</span><span id="reposts">0</span>
+        <span>nicotine</span><span id="nic">0</span>
+        <span>tolerance</span><span id="tol">0</span>
+        <span>withdrawal</span><span id="wd">0</span>
+        <span>ACh gain</span><span id="gain">1.00</span>
+        <span>GPU</span><span id="gpu">–</span>
+      </div>
+      <div class="bars" id="bars"></div>
+    </section>
+
+    <section id="log" class="panel"></section>
+
+    <section id="brain-panel" class="panel">
+      <div class="brain-title"><span>brain · live spikes</span><span id="brain-firing">–</span></div>
+      <div id="brain-canvas"></div>
+    </section>
+
+    <nav id="controls" class="panel">
+      <button id="btn-puff">Give puff</button>
+      <button id="btn-like">Like</button>
+      <button id="btn-follow">Follow</button>
+      <button id="btn-repost">Repost</button>
+      <button id="btn-tiktok" hidden>Log in to TikTok</button>
+      <button id="btn-sound" hidden>Sound off</button>
+      <label class="file">Add videos<input id="videos" type="file" accept="video/*" multiple /></label>
+      <button id="btn-pause">Pause</button>
+      <button id="btn-reset">Reset brain</button>
+      <span id="status">connecting…</span>
+    </nav>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
