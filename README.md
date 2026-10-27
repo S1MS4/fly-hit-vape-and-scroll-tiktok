@@ -225,7 +225,7 @@ From [brain/build_graph.py](brain/build_graph.py). A connection's sign comes fro
 \begin{cases}
 +1 & \text{acetylcholine, or } i \text{ is a photoreceptor}\\
 -1 & \text{GABA, glutamate, histamine}\\
-\phantom{+}0 & \text{dopamine, serotonin, octopamine}\\
+0 & \text{dopamine, serotonin, octopamine}\\
 +\tfrac12 & \text{unclear}
 \end{cases}
 ```
@@ -233,7 +233,7 @@ From [brain/build_graph.py](brain/build_graph.py). A connection's sign comes fro
 and its weight is its synapse count $`w_{ij}`$, signed and scaled to millivolts:
 
 ```math
-c_{ij} = \operatorname{rint}\bigl(\sigma_i\, w_{ij}\bigr),\qquad W_{ij} = 0.275\ \text{mV}\cdot c_{ij}
+c_{ij} = \mathrm{rint}\bigl(\sigma_i\, w_{ij}\bigr),\qquad W_{ij} = 0.275\ \text{mV}\cdot c_{ij}
 ```
 
 The weights are stored as a CSR matrix with one row per sending neuron, so delivering a spike reads only the row of the neuron that fired. The front-leg descending neurons are picked by how much they talk to the front-leg motor neurons:
@@ -386,15 +386,15 @@ From [web/src/fly.ts](web/src/fly.ts). The choreography is built from three curv
 
 ```math
 S(x) = \bar x^2 (3 - 2\bar x),\ \ \bar x = \min(1, \max(0, x)),\qquad
-\operatorname{ramp}(\tau; a, b) = S\Bigl(\frac{\tau - a}{b - a}\Bigr),\qquad
-\operatorname{bump}(\tau; a, b) = \sin\Bigl(\pi\, \frac{\tau - a}{b - a}\Bigr)\ \text{on } (a, b)
+\mathrm{ramp}(\tau; a, b) = S\Bigl(\frac{\tau - a}{b - a}\Bigr),\qquad
+\mathrm{bump}(\tau; a, b) = \sin\Bigl(\pi\, \frac{\tau - a}{b - a}\Bigr)\ \text{on } (a, b)
 ```
 
 **Legs.** Every leg is solved with two-bone IK by the law of cosines. With the hip $`\mathbf{h}`$, the target $`\mathbf{j}`$ for the ankle, femur and tibia lengths $`l_1, l_2`$ and a pole vector $`\mathbf{p}`$ that says which way the knee bends:
 
 ```math
 \begin{aligned}
-d &= \operatorname{clamp}\bigl(\lVert \mathbf{j} - \mathbf{h} \rVert,\ \lvert l_1 - l_2 \rvert,\ l_1 + l_2\bigr),\qquad \hat{\mathbf{u}} = \frac{\mathbf{j} - \mathbf{h}}{\lVert \mathbf{j} - \mathbf{h} \rVert}\\
+d &= \mathrm{clamp}\bigl(\lVert \mathbf{j} - \mathbf{h} \rVert,\ \lvert l_1 - l_2 \rvert,\ l_1 + l_2\bigr),\qquad \hat{\mathbf{u}} = \frac{\mathbf{j} - \mathbf{h}}{\lVert \mathbf{j} - \mathbf{h} \rVert}\\
 \cos\alpha &= \frac{l_1^2 + d^2 - l_2^2}{2\, l_1\, d},\qquad
 \hat{\mathbf{b}} = \frac{\mathbf{p} - (\mathbf{p} \cdot \hat{\mathbf{u}})\, \hat{\mathbf{u}}}{\lVert \mathbf{p} - (\mathbf{p} \cdot \hat{\mathbf{u}})\, \hat{\mathbf{u}} \rVert}\\
 \text{knee} &= \mathbf{h} + l_1 \cos\alpha\, \hat{\mathbf{u}} + l_1 \sin\alpha\, \hat{\mathbf{b}},\qquad
@@ -407,8 +407,8 @@ and each bone is turned onto its segment with the shortest-arc rotation. To put 
 **A hit** (3.4 s). The arms reach and the vape rises on two envelopes, and both chase their targets so an interrupted hit glides back instead of snapping:
 
 ```math
-\text{grab}^\star = \operatorname{ramp}(\tau; 0, 0.5)\bigl(1 - \operatorname{ramp}(\tau; 2.8, 3.3)\bigr),\qquad
-\text{up}^\star = \operatorname{ramp}(\tau; 0.5, 1.1)\bigl(1 - \operatorname{ramp}(\tau; 2.2, 2.8)\bigr)
+\text{grab}^\star = \mathrm{ramp}(\tau; 0, 0.5)\bigl(1 - \mathrm{ramp}(\tau; 2.8, 3.3)\bigr),\qquad
+\text{up}^\star = \mathrm{ramp}(\tau; 0.5, 1.1)\bigl(1 - \mathrm{ramp}(\tau; 2.2, 2.8)\bigr)
 ```
 
 ```math
@@ -420,31 +420,31 @@ The draw is at $`\tau = 1.1`$ s (the band lights, or blinks if the battery is de
 **A swipe** (1.2 s). The leg slides up the screen, in screen coordinates $`(u, v) \in [-1, 1]^2`$, on the side $`s = \pm 1`$ of the arm doing it:
 
 ```math
-\mathbf{P}_{\text{swipe}} = \operatorname{lerp}\Bigl(\mathbf{S}(0.35 s,\ -0.4),\ \mathbf{S}(0.35 s,\ 0),\ \operatorname{ramp}(\tau; 0.35, 0.7)\Bigr)
+\mathbf{P}_{\text{swipe}} = \mathrm{lerp}\Bigl(\mathbf{S}(0.35 s,\ -0.4),\ \mathbf{S}(0.35 s,\ 0),\ \mathrm{ramp}(\tau; 0.35, 0.7)\Bigr)
 ```
 
 and a tap hovers 0.05 off the glass and dips onto it, twice for a like:
 
 ```math
-\text{dip}_{\text{like}} = \operatorname{bump}(\tau; 0.3, 0.5) + \operatorname{bump}(\tau; 0.55, 0.75),\qquad
-\text{dip}_{\text{follow, repost}} = \operatorname{bump}(\tau; 0.3, 0.7)
+\text{dip}_{\text{like}} = \mathrm{bump}(\tau; 0.3, 0.5) + \mathrm{bump}(\tau; 0.55, 0.75),\qquad
+\text{dip}_{\text{follow, repost}} = \mathrm{bump}(\tau; 0.3, 0.7)
 ```
 
-**Coughs, whiteys and escapes.** A cough is one half-sine over the fit, $`C = \operatorname{bump}(\tau; 0, T_c)`$, that drives fast jerks of the body (34 rad/s), the head (47 rad/s) and the wings. A whitey folds the legs in 0.5 s and lets go over the last 0.9 s:
+**Coughs, whiteys and escapes.** A cough is one half-sine over the fit, $`C = \mathrm{bump}(\tau; 0, T_c)`$, that drives fast jerks of the body (34 rad/s), the head (47 rad/s) and the wings. A whitey folds the legs in 0.5 s and lets go over the last 0.9 s:
 
 ```math
-W = \operatorname{ramp}(\tau; 0, 0.5)\Bigl(1 - \operatorname{ramp}\bigl(\tau;\ \max(0.55,\ T_w - 0.9),\ T_w\bigr)\Bigr)
+W = \mathrm{ramp}(\tau; 0, 0.5)\Bigl(1 - \mathrm{ramp}\bigl(\tau;\ \max(0.55,\ T_w - 0.9),\ T_w\bigr)\Bigr)
 ```
 
-An escape is a 0.9 s startle: a hop of $`0.05\, \operatorname{bump}(\tau; 0, 0.5)`$ and a wing buzz of $`\operatorname{bump}(\tau; 0, 0.9)`$.
+An escape is a 0.9 s startle: a hop of $`0.05\, \mathrm{bump}(\tau; 0, 0.5)`$ and a wing buzz of $`\mathrm{bump}(\tau; 0, 0.9)`$.
 
 **The fetch** (4.7 s). Airborne $`A`$, trip $`\Pi`$ and carry $`K`$ envelopes overlap; the fly flies a straight line from its seat $`\mathbf{x}_0`$ to a point $`\mathbf{H}`$ 0.24 above the spare, bobbing with its wingbeat:
 
 ```math
 \begin{aligned}
-A &= \operatorname{ramp}(\tau; 0.8, 1.3)\bigl(1 - \operatorname{ramp}(\tau; 4.1, 4.6)\bigr),\qquad
-\Pi = \operatorname{ramp}(\tau; 1.0, 2.45)\bigl(1 - \operatorname{ramp}(\tau; 2.85, 4.2)\bigr)\\
-\mathbf{x} &= \operatorname{lerp}(\mathbf{x}_0,\ \mathbf{H},\ \Pi) + \bigl(0,\ A\,(0.05 + 0.012 \sin 26 t),\ 0\bigr)
+A &= \mathrm{ramp}(\tau; 0.8, 1.3)\bigl(1 - \mathrm{ramp}(\tau; 4.1, 4.6)\bigr),\qquad
+\Pi = \mathrm{ramp}(\tau; 1.0, 2.45)\bigl(1 - \mathrm{ramp}(\tau; 2.85, 4.2)\bigr)\\
+\mathbf{x} &= \mathrm{lerp}(\mathbf{x}_0,\ \mathbf{H},\ \Pi) + \bigl(0,\ A\,(0.05 + 0.012 \sin 26 t),\ 0\bigr)
 \end{aligned}
 ```
 
@@ -478,7 +478,7 @@ Over its life $`\lambda \in [0, 1]`$ (2.8 to 5 s) a sprite grows to 5× its size
 
 ```math
 \text{size} \propto 1 + 4\sqrt{\lambda},\qquad
-\alpha = 0.75\, \alpha_{\text{tex}}\, \operatorname{smoothstep}(0, 0.06, \lambda)\bigl(1 - \operatorname{smoothstep}(0.3, 1, \lambda)\bigr)
+\alpha = 0.75\, \alpha_{\text{tex}}\, \mathrm{smoothstep}(0, 0.06, \lambda)\bigl(1 - \mathrm{smoothstep}(0.3, 1, \lambda)\bigr)
 ```
 
 The puffs themselves are five octaves of value noise under a round falloff, and smoke seen against the sun is tinted amber, more at its thin edges.
@@ -540,7 +540,7 @@ From [headless/run.py](headless/run.py). The brain watches $`s`$ seconds of vide
 r =
 \begin{cases}
 0 \ (\text{pause}) & a > 0.25 \max(1, s)\\
-\operatorname{clip}\Bigl(\dfrac{0.05\, s}{\bar\tau} - a,\ \tfrac{1}{16},\ 16\Bigr) & \text{otherwise}
+\mathrm{clip}\Bigl(\dfrac{0.05\, s}{\bar\tau} - a,\ \tfrac{1}{16},\ 16\Bigr) & \text{otherwise}
 \end{cases}
 ,\qquad \bar\tau \leftarrow \bar\tau + 0.1\,\bigl(\Delta t_{\text{wall}} - \bar\tau\bigr)
 ```
@@ -549,7 +549,7 @@ The first term plays exactly one tick's worth of video in one tick's wall time $
 
 ```math
 J = \frac{\lvert A_{\text{first}} \cap A_{\text{last}} \rvert}{\lvert A_{\text{first}} \cup A_{\text{last}} \rvert},\qquad
-\operatorname{lift}(t) = \frac{c_{\text{liked}}(t) / N_{\text{liked}}}{c_{\text{all}}(t) / N}
+\mathrm{lift}(t) = \frac{c_{\text{liked}}(t) / N_{\text{liked}}}{c_{\text{all}}(t) / N}
 ```
 
 ## How fast it runs
